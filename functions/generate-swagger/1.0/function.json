@@ -1,0 +1,71 @@
+{
+  "description": "Translate a Betty Blocks GQL Introspection to a swagger to use for Remote modelling",
+  "label": "Betty Blocks to Swagger",
+  "category": "Misc",
+  "icon": {
+    "color": "Green",
+    "name": "PlusIcon"
+  },
+  "options": [
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "apiUrl",
+      "label": "API url",
+      "info": "The url of the Data API of the app you want to use",
+      "advanced": false,
+      "configuration": {
+        "placeholder": "https://*app-id*.betty.app/api/runtime/a8bca0e443f04b2c8cff2db38cc21a"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "authProfile",
+      "label": "Authentication Profile UUID",
+      "info": "The UUID of the authentication profile used to authenticate on the Data API",
+      "advanced": false,
+      "configuration": {
+        "placeholder": "a8bca0e443f04b2c8cff2db38cc21a"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "email",
+      "label": "Email address",
+      "info": "Used to authenticate on the above mentioned",
+      "advanced": false,
+      "configuration": {
+        "placeholder": "John@bettyblocks.com"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "password",
+      "label": "Password",
+      "info": "Used to authenticate on the above mentioned",
+      "advanced": false,
+      "configuration": {
+        "placeholder": ""
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "result",
+      "label": "Swagger as",
+      "info": "The resulting swagger definition."
+    }
+  ],
+  "yields": "NONE"
+}

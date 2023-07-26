@@ -1,0 +1,132 @@
+{
+  "description": "Requesting an Access Token via a POST request, to use in further requests. The fields give examples for an JWT assertion to Access Token flow. Make sure you also use the available documentation from your DocuSign account.",
+  "label": "Get DocuSign Access Token",
+  "category": "DocuSign",
+  "icon": {
+    "name": "UserKeyIcon",
+    "color": "Orange"
+  },
+  "options": [
+    {
+      "label": "Token Url, e.g. https://account-d.docusign.com/oauth/token",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "url"
+    },
+    {
+      "label": "DocuSign Integration Key",
+      "info": "This and the secret will be used to create the Authorization header so you don't have to provide that. If you leave the Key and Secret empty you'll have to provide Authorization as a header manually.",
+      "meta": {
+        "type": "Text"
+      },
+      "name": "integrationKey"
+    },
+    {
+      "label": "DocuSign Integration Secret",
+      "info": "Make sure to save this securely.",
+      "meta": {
+        "type": "Text"
+      },
+      "name": "integrationSecret"
+    },
+    {
+      "info": "Sometimes you may need to pass some additional information in your request, this is possible by adding variables in your header.",
+      "label": "Headers",
+      "meta": {
+        "type": "Map"
+      },
+      "name": "headers"
+    },
+    {
+      "info": "Body parameters as key-value pairs. You'd atleast need a 'grant_type', and depending on the desired flow, an 'assertion' to enter the JWT.",
+      "label": "Body Parameters, e.g. grant_type & assertion",
+      "meta": {
+        "type": "Map"
+      },
+      "name": "body"
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "validations": {
+          "required": true
+        },
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "accessToken",
+      "label": "Access Token as",
+      "info": "The name for the variable that will contain the returning access token",
+
+      "configuration": {
+        "placeholder": "accessToken"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "validations": {
+          "required": true
+        },
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "refreshToken",
+      "label": "Refresh Token as",
+      "info": "The name for the variable that will contain the returning refresh token. Refresh token are used to easily keep access 'alive' by requesting a new access token once the current one has expired.",
+
+      "configuration": {
+        "placeholder": "refreshToken"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "tokenType",
+      "label": "Token type as",
+      "info": "The name for the variable that will contain the returning token type, optional",
+      "configuration": {
+        "placeholder": "tokenType"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Number"
+        }
+      },
+      "name": "expiresIn",
+      "label": "Expiry seconds as",
+      "info": "The name for the variable that will contain the returning token expiry in seconds, optional",
+      "configuration": {
+        "placeholder": "secondsFromExpiring"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "scope",
+      "label": "Scope name as",
+      "info": "The name for the variable that will contain the returning scope, optional",
+      "configuration": {
+        "placeholder": "accessTokenScope"
+      }
+    }
+  ],
+  "yields": "NONE"
+}

@@ -1,0 +1,154 @@
+{
+  "description": "This step can create a simple sign request for either one or two signers. If your use case needs a more comprehensive envelope with more documents or signers you can create a custom envelope following DocuSign's documentation and different action steps.",
+  "label": "Docu Sign Create Signature Request",
+  "category": "DocuSign",
+  "icon": {
+    "name": "FileSignedIcon",
+    "color": "Green"
+  },
+  "options": [
+    {
+      "label": "Document to be signed",
+      "name": "document",
+      "info": "The document that needs to be signed. Can be either a DOCX or PDF but it has to include the correct anchor tabs. For more information refer to the documentation.",
+      "meta": {
+        "type": "Value",
+        "allowedKinds": ["FILE"],
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Signer Email",
+      "name": "signer_email",
+      "info": "The email address for the person you want to request a signature from.",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Signer name",
+      "name": "signer_name",
+      "info": "The name of the person your requesting a signature from",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Signature Anchor Tab",
+      "name": "anchor",
+      "info": "The anchor tab(s) inside the documentation where the signature(s) should be placed. If there are multiple anchor tabs you can enter them here separated by commas. (So do not use commas inside any anchor tab)",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Sign date anchor Tab",
+      "name": "date_anchor",
+      "info": "The anchor tab(s) inside the documentation where DocuSign should place the date of signing.",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "Add second signer",
+      "name": "signer_2_check",
+      "info": "Check this if you want to add a second signer. If not, you can leave the 2nd signer fields below empty.",
+      "meta": {
+        "type": "Boolean"
+      }
+    },
+    {
+      "label": "2nd signer email",
+      "name": "signer_email_2",
+      "info": "The email address for the person you want to request a signature from.",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "2nd signer name",
+      "name": "signer_name_2",
+      "info": "The name of the person your requesting a signature from",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "2nd signer's anchor tab(s)",
+      "name": "anchor_2",
+      "info": "The anchor tab(s) inside the documentation where the signature(s) should be placed. These should be different anchors than for the first signer.",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "2nd signer sign date anchor tab",
+      "name": "date_anchor_2",
+      "info": "The anchor tab(s) inside the documentation where DocuSign should place the date of signing.",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "Carbon copies",
+      "name": "carbon_copies",
+      "info": "Optionally add a comma separated set of emails ",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "Callback URL",
+      "name": "callback_url",
+      "info": "Optionally enter the url of a BB action where DocuSign should send any updates to once a document has been signed. This will be sent as a POST so the URL should be  https://{{appName}}.betty.app/api/runtime/{{appId}}/action/{{actionId}}",
+      "meta": {
+        "type": "Text"
+      }
+    },
+    {
+      "label": "Envelopes API URL",
+      "name": "envelopes_url",
+      "info": "The url of your DocuSign API, e.g. https://demo.docusign.net/restapi/v2.1/accounts/{{ ID }}/envelopes",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Access token",
+      "name": "access_token",
+      "info": "The Access Token to use for authenticating on the API. This also determines the sender of the sign request.",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "label": "Envelope ID as",
+      "info": "A Signature Request in DocuSign is called an Envelope. Once created, the Envelope ID can be used to request updates on the signature(s).",
+      "name": "envelope_id"
+    }
+  ],
+  "yields": "NONE"
+}

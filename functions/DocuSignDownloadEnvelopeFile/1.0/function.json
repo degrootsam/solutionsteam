@@ -1,0 +1,130 @@
+{
+  "description": "Download file(s) from a DocuSign Envelope to save it in Betty Blocks",
+  "label": "DocuSign Download Envelope File(s)",
+  "category": "DocuSign",
+  "icon": {
+    "name": "FileSignedIcon",
+    "color": "Orange"
+  },
+  "options": [
+    {
+      "label": "Base Url, e.g. https://demo.docusign.net/restapi/v2.1",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "baseUrl"
+    },
+    {
+      "label": "DocuSign Account ID e.g. 64589d5e-8d57-44f0-bc1a-48b0ec71f9b6",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "accountId"
+    },
+    {
+      "label": "Authorization header, e.g. Bearer eyJ0eXAiOiJNVCIsImF....",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "bearerToken"
+    },
+    {
+      "label": "Envelope ID e.g. 64589d5e-8d57-44f0-bc1a-48b0ec71f9b6",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "envelopeId"
+    },
+    {
+      "meta": {
+        "type": "Select",
+        "validations": {
+          "required": true
+        },
+        "values": [
+          { "label": "All documents as one PDF", "value": "combined" },
+          {
+            "label": "A ZIP archive that contains all of the documents and the certificate of completion.",
+            "value": "archive"
+          },
+          {
+            "label": "Only the Certificate of Completion as a PDF",
+            "value": "certificate"
+          },
+          {
+            "label": "One specific document in the envelope",
+            "value": "specificDoc"
+          }
+        ]
+      },
+      "name": "downloadType",
+      "label": "Which file(s) do you want to fetch from DocuSign?",
+      "info": "Retrieves all of the documents as a single PDF file OR Retrieves a ZIP archive that contains all of the PDF documents and the certificate of completion OR Retrieves only the certificate of completion as a PDF file OR Retrieves the envelope documents as a PDF portfolio OR Get one specific document by it's ID"
+    },
+    {
+      "label": "Document ID, e.g. 22",
+      "meta": {
+        "type": "Text"
+      },
+      "info": "Only applies when you want to download 1 specific Envelope Document",
+      "name": "documentId"
+    },
+    {
+      "meta": {
+        "type": "Model",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "model",
+      "label": "Model"
+    },
+    {
+      "meta": {
+        "allowedKinds": ["FILE", "IMAGE"],
+        "type": "Property",
+        "model": "model",
+        "validations": {
+          "required": true
+        }
+      },
+      "configuration": {
+        "dependsOn": [
+          {
+            "option": "model",
+            "action": "CLEAR"
+          }
+        ]
+      },
+      "name": "property",
+      "label": "Property"
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "fileRef",
+      "label": "Downloaded file as",
+      "info": "Contains the reference to the file which can be saved by assigning it to the corresponding file property",
+      "configuration": {
+        "placeholder": "DocusignFile"
+      }
+    }
+  ],
+  "yields": "NONE"
+}

@@ -1,0 +1,132 @@
+{
+  "description": "Description",
+  "label": "OAuth Token Request",
+  "category": "Integrations",
+  "icon": {
+    "name": "ActionsIcon",
+    "color": "Orange"
+  },
+  "options": [
+    {
+      "label": "Token Url",
+      "info": "The url to request the token from. Usually something like https://clientinstance.integrationsystem.com/oauth/token",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      },
+      "name": "url"
+    },
+    {
+      "label": "Request Method",
+      "name": "method",
+      "info": "The method of the request. Most services use a POST request here.",
+      "meta": {
+        "type": "Select",
+        "values": [
+          { "label": "POST", "value": "POST" },
+          { "label": "GET", "value": "GET" }
+        ],
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "info": "Sometimes you may need to pass some additional information in your request, this is possible by adding variables in your header.",
+      "label": "Headers",
+      "meta": {
+        "type": "Map"
+      },
+      "name": "headers"
+    },
+    {
+      "info": "Body parameters as key-value pairs. You'd atleast need a 'grant_type', and depending on the desired flow, an 'assertion' to enter the JWT.",
+      "label": "Body Parameters, e.g. grant_type & assertion",
+      "meta": {
+        "type": "Map"
+      },
+      "name": "body"
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "validations": {
+          "required": true
+        },
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "access_token",
+      "label": "Access Token as",
+      "info": "The name for the variable that will contain the returning access token",
+
+      "configuration": {
+        "placeholder": "access_token"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "validations": {
+          "required": true
+        },
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "refresh_token",
+      "label": "Refresh Token as",
+      "info": "The name for the variable that will contain the returning refresh token. Refresh token are used to easily keep access 'alive' by requesting a new access token once the current one has expired.",
+
+      "configuration": {
+        "placeholder": "refresh_token"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "token_type",
+      "label": "Token type as",
+      "info": "The name for the variable that will contain the returning token type, optional. Not used in every oauth flow so be sure to check the API's docs if you would like to use it.",
+      "configuration": {
+        "placeholder": "tokenType"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Number"
+        }
+      },
+      "name": "expires_in",
+      "label": "Expiry seconds as",
+      "info": "The name for the variable that will contain the returning token expiry in seconds, optional.",
+      "configuration": {
+        "placeholder": "secondsFromExpiring"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      },
+      "name": "scope",
+      "label": "Scope name as",
+      "info": "The name for the variable that will contain the returning scope, optional. Not used in every oauth flow so be sure to check the API's docs if you would like to use it.",
+      "configuration": {
+        "placeholder": "scope"
+      }
+    }
+  ],
+  "yields": "NONE"
+}

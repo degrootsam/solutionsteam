@@ -1,0 +1,134 @@
+{
+  "description": "Description",
+  "label": "Send Email Via MS Graph",
+  "category": "Microsoft Graph",
+  "icon": {
+    "name": "EnvelopeClosedIcon",
+    "color": "Teal"
+  },
+  "options": [
+    {
+      "label": "Enable Logging",
+      "name": "log",
+      "info": "If this is enabled the step will put certain variables in the applications log during execution. This includes Authorization values so ONLY USE FOR DEBUGGING PURPOSES",
+      "meta": {
+        "type": "Boolean"
+      }
+    },
+    {
+      "label": "Access Token",
+      "name": "accessToken",
+      "info": "The access token to be used in the request. Step will automatically add 'Bearer ' to the beginning if not already added in the variable.",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Send from email",
+      "name": "sendFromEmail",
+      "info": "The sender's email address",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Send from name",
+      "name": "sendFromName",
+      "info": "The sender's name",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Subject",
+      "name": "subject",
+      "info": "The subject of the Email",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Recipients",
+      "name": "recipients",
+      "info": "Define the Recipients as the name as key and the email address as a value. If you do not with to use a name, also assign the email as a key.",
+      "meta": {
+        "type": "Map",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Carbon Copy (CC) Recipients",
+      "name": "ccRecipients",
+      "info": "Define the Recipients as the name as key and the email address as a value. If you do not with to use a name, also assign the email as a key.",
+      "meta": {
+        "type": "Map"
+      }
+    },
+    {
+      "label": "Blind Carbon Copy (BCC) Recipients",
+      "name": "bccRecipients",
+      "info": "Define the Recipients as the name as key and the email address as a value. If you do not with to use a name, also assign the email as a key.",
+      "meta": {
+        "type": "Map"
+      }
+    },
+    {
+      "label": "Email Content Type",
+      "name": "bodyContentType",
+      "info": "Define the content type of your email, be sure to read up on safe html on Microsoft's documentation when using html",
+      "meta": {
+        "type": "Select",
+        "validations": { "required": true },
+        "values": [
+          { "label": "Plain Text", "value": "text" },
+          { "label": "html", "value": "html" }
+        ]
+      }
+    },
+    {
+      "label": "Email Content",
+      "name": "body",
+      "info": "The content of the email you wish to send",
+      "meta": {
+        "type": "Text",
+        "validations": {
+          "required": true
+        }
+      }
+    },
+    {
+      "label": "Attachments",
+      "name": "attachments",
+      "info": "Attachments should be base64 strings of the file data. Define a name for your file as key, and the base64 string as value INCLUDING MIME TYPE. You can use the 'File to base64' step from the blocks store",
+      "meta": {
+        "type": "Map"
+      }
+    },
+    {
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "JSON"
+        }
+      },
+      "name": "as",
+      "label": "Response as",
+      "info": "Response message from the Graph API"
+    }
+  ],
+  "yields": "NONE"
+}

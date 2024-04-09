@@ -24,7 +24,8 @@
     },
     {
       "meta": {
-        "type": "Collection",
+        "type": "Value",
+        "allowedKinds": ["COLLECTION", "ARRAY"],
         "validations": {
           "required": true
         }

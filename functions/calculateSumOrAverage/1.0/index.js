@@ -13,8 +13,6 @@ const calculateSumOrAverage = async ({ collection, property, sumOrAvg }) => {
 
   const totalSum = floats.reduce((a, c) => a + c, 0);
 
-  console.log(totalSum, floats);
-
   if (sumOrAvg == "sum") {
     return { as: totalSum };
   } else if (sumOrAvg == "average") {
